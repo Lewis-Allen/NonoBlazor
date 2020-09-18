@@ -2,6 +2,7 @@
 using NonoBlazor.Shared;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,7 +13,11 @@ namespace NonoBlazor.Database.Contexts
         public DbSet<StandardNonogram> StandardNonograms { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite(@"Data Source=C:\Users\i7 Pro Gamer\source\repos\NonoBlazor\NonoBlazor\Database\Nonogram.db");
+        {
+            var path = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\..\\Database\\Nonogram.db"));
+
+            options.UseSqlite(@$"Data Source={path}");
+        }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
