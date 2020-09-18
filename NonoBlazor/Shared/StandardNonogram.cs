@@ -9,7 +9,7 @@ namespace NonoBlazor.Shared
         public int StandardNonogramID { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }
-        public List<string> RowValues { get; set; }
-        public List<string> ColumnValues { get; set; }
+        public string RowValues { get; set; }
+        public string ColumnValues { get; set; }
     }
 }

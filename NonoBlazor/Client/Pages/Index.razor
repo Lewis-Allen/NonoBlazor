@@ -1,5 +1,28 @@
 ﻿@page "/"
+@using NonoBlazor.Shared
+@inject HttpClient httpClient; 
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+
+@foreach(var nonogram in nonograms)
+{
+<ul>
+    <li>ID: @nonogram.StandardNonogramID</li>
+    <li>Width: @nonogram.Width</li>
+    <li>Height: @nonogram.Height</li>
+    <li>Row Values: @nonogram.RowValues</li>
+    <li>Column Values: @nonogram.ColumnValues</li>
+</ul>
+}
+
+@code {
+
+    List<StandardNonogram> nonograms = new List<StandardNonogram>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        nonograms = await httpClient.GetFromJsonAsync<List<StandardNonogram>>("api/StandardNonogram");
+    }
+}
