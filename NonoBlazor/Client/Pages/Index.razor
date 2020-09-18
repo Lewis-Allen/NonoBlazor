@@ -9,7 +9,8 @@ Welcome to your new app.
 @foreach(var nonogram in nonograms)
 {
 <ul>
-    <li>ID: @nonogram.StandardNonogramID</li>
+    <li>ID: @nonogram.ID</li>
+    <li>ID: @nonogram.PublicID</li>
     <li>Width: @nonogram.Width</li>
     <li>Height: @nonogram.Height</li>
     <li>Row Values: @nonogram.RowValues</li>

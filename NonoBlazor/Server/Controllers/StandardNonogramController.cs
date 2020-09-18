@@ -20,12 +20,37 @@ namespace NonoBlazor.Server.Controllers
             _db = db;
         }
 
-        [HttpGet]
+        [HttpGet("")]
         public async Task<ActionResult<List<StandardNonogram>>> Get()
         {
-            var nonograms = _db.StandardNonograms.ToList();
+            var nonograms = (from sn in _db.StandardNonograms
+                             select new StandardNonogram
+                             {
+                                 PublicID = sn.PublicID,
+                                 Width = sn.Width,
+                                 Height = sn.Height,
+                                 RowValues = sn.RowValues,
+                                 ColumnValues = sn.ColumnValues
+                             }).ToList();
 
             return nonograms;
+        }
+
+        [HttpGet("{publicId}")]
+        public async Task<ActionResult<StandardNonogram>> Get(Guid publicId)
+        {
+            var nonogram = (from sn in _db.StandardNonograms
+                            where sn.PublicID == publicId
+                            select new StandardNonogram
+                            {
+                                PublicID = sn.PublicID,
+                                Width = sn.Width,
+                                Height = sn.Height,
+                                RowValues = sn.RowValues,
+                                ColumnValues = sn.ColumnValues
+                            }).FirstOrDefault();
+                           
+            return nonogram;
         }
     }
 }

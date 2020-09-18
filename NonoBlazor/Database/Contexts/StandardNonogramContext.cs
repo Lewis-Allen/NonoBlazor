@@ -28,7 +28,8 @@ namespace NonoBlazor.Database.Contexts
                 .HasData(
                     new StandardNonogram
                     {
-                        StandardNonogramID = 1,
+                        ID = 1,
+                        PublicID = Guid.NewGuid(),
                         Width = 10,
                         Height = 10,
                         ColumnValues = "3,3,3,3,3,3,3,3,3,3",
@@ -36,7 +37,8 @@ namespace NonoBlazor.Database.Contexts
                     },
                     new StandardNonogram
                     {
-                        StandardNonogramID = 2,
+                        ID = 2,
+                        PublicID = Guid.NewGuid(),
                         Width = 10,
                         Height = 10,
                         ColumnValues = "3,3,3,3,3,3,3,3,3,3",
@@ -44,7 +46,8 @@ namespace NonoBlazor.Database.Contexts
                     },
                     new StandardNonogram
                     {
-                        StandardNonogramID = 3,
+                        ID = 3,
+                        PublicID = Guid.NewGuid(),
                         Width = 10,
                         Height = 10,
                         ColumnValues = "3,3,3,3,3,3,3,3,3,3",

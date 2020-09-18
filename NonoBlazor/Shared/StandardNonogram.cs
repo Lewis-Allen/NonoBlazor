@@ -6,7 +6,8 @@ namespace NonoBlazor.Shared
 {
     public class StandardNonogram
     {
-        public int StandardNonogramID { get; set; }
+        public int ID { get; set; }
+        public Guid PublicID { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }
         public string RowValues { get; set; }
