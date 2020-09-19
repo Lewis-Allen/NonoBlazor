@@ -179,6 +179,40 @@ app {
     padding: 0.5rem;
 }
 
+.nonogram-table {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.nonogram-row {
+
+}
+
+.nonogram-cell {
+    min-width: 50px;
+    min-height: 50px;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 20px;
+}
+
+.nonogram-rowvalue-container {
+    min-width: 100px;
+}
+
+.nonogram-columnvalue-container {
+    min-height: 100px;
+}
+
+.nonogram-rowvalue {
+    margin: auto 0;
+    padding: 0 5px 5px 0;
+}
+
+.nonogram-columnvalue {
+
+}
+
 @media (max-width: 920px) {
     .nonogram-card {
         flex: 1 21%;

@@ -3,7 +3,7 @@
 @inject HttpClient client
 
 <div id="wrapper">
-    @if (Nonogram == null && BadRequest == false)
+    @if ((Nonogram == null || CellValues == null) && BadRequest == false)
     {
         <p>Loading...</p>
     }
@@ -15,23 +15,43 @@
     {
         <h1>Puzzle #@Nonogram.ID</h1>
 
-        <p>ID: @Nonogram.ID</p>
-        <p>Width: @Nonogram.Width</p>
-        <p>Height: @Nonogram.Height</p>
-        <p>RowValues</p>
-        <ul>
-            @foreach (var v in Nonogram.RowValues)
-            {
-                <li>@string.Join(",", v)</li>
-            }
-        </ul>
-        <p>ColumnValues</p>
-        <ul>
-            @foreach (var v in Nonogram.ColumnValues)
-            {
-                <li>@string.Join(",", v)</li>
-            }
-        </ul>
+        <div class="nonogram-container">
+            <div class="nonogram-table">
+                <div class="nonogram-row nonogram-row d-flex">
+                    <div class="nonogram-columnvalue-container nonogram-rowvalue-container nonogram-cell"></div> <!-- Empty Cell for first column. Row Values will go here. -->
+                    @foreach (List<int> colValues in Nonogram.ColumnValues)
+                    {
+                        <div class="nonogram-cell d-flex flex-column justify-content-end">
+                            @foreach (int colValue in colValues)
+                            {
+                                <div class="nonogram-columnvalue">@colValue</div>
+                            }
+                        </div>
+                    }
+                </div>
+
+                @for(var rowNum = 0; rowNum < Nonogram.RowValues.Count; rowNum++) // List<int> rowValues in Nonogram.RowValues)
+                {
+                    <div class="nonogram-row d-flex">
+                        <div class="nonogram-cell nonogram-rowvalue-container d-flex justify-content-end">
+                            @foreach(int rowValue in Nonogram.RowValues[rowNum])
+                            {
+                                <div class="nonogram-rowvalue">@rowValue</div>
+                            }
+                        </div>
+
+                        @for(var colNum = 0; colNum < Nonogram.ColumnValues.Count; colNum++)
+                        {
+                            var rowNumCopy = rowNum;
+                            var colNumCopy = colNum;
+
+                            <div class="nonogram-cell @(CellValues[colNumCopy][rowNumCopy] ? "bg-dark" : "bg-white")" @onclick="(_ => FlipCell(colNumCopy, rowNumCopy))"></div>
+                        }
+                    </div>
+                }
+
+            </div>
+        </div>
     }
 </div>
 
@@ -42,15 +62,31 @@
 
     public StandardNonogram Nonogram { get; set; }
 
+    public bool[][] CellValues { get; set; }
+
     public bool BadRequest { get; set; } = false;
 
     protected override async Task OnInitializedAsync()
     {
         Nonogram = await client.GetFromJsonAsync<StandardNonogram>($"api/StandardNonogram/{Id}");
 
-        if(Nonogram == null)
+        if (Nonogram == null)
         {
             BadRequest = true;
         }
+        else
+        {
+            CellValues = new bool[Nonogram.Width][];
+
+            for (var i = 0; i < Nonogram.Width; i++)
+            {
+                CellValues[i] = new bool[Nonogram.Height];
+            }
+        }
+    }
+
+    public void FlipCell(int colNum, int rowNum)
+    {
+        CellValues[colNum][rowNum] = !CellValues[colNum][rowNum];
     }
 }
