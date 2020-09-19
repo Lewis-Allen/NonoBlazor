@@ -30,9 +30,16 @@
 
     <section class="nonograms">
 
-        @foreach (var nonogram in DisplayedNonograms)
+        @if (DisplayedNonograms.Count == 0)
         {
-            <StandardNonogramCard Nonogram="nonogram"></StandardNonogramCard>
+            <p>Loading...</p>
+        }
+        else
+        {
+            @foreach (var nonogram in DisplayedNonograms)
+            {
+                <StandardNonogramCard Nonogram="nonogram"></StandardNonogramCard>
+            }
         }
 
     </section>

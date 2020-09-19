@@ -3,19 +3,35 @@
 @inject HttpClient client
 
 <div id="wrapper">
-    <h1>Your chosen Nonogram is...</h1>
-
-    @if (Nonogram == null)
+    @if (Nonogram == null && BadRequest == false)
     {
-        <p>Nonogram not found.</p>
+        <p>Loading...</p>
+    }
+    else if (BadRequest == true)
+    {
+        <p>Bad Request <a href="/">Go Back</a></p>
     }
     else
     {
+        <h1>Puzzle #@Nonogram.ID</h1>
+
         <p>ID: @Nonogram.ID</p>
         <p>Width: @Nonogram.Width</p>
         <p>Height: @Nonogram.Height</p>
-        <p>RowValues: @Nonogram.RowValues</p>
-        <p>ColumnValues: @Nonogram.ColumnValues</p>
+        <p>RowValues</p>
+        <ul>
+            @foreach (var v in Nonogram.RowValues)
+            {
+                <li>@string.Join(",", v)</li>
+            }
+        </ul>
+        <p>ColumnValues</p>
+        <ul>
+            @foreach (var v in Nonogram.ColumnValues)
+            {
+                <li>@string.Join(",", v)</li>
+            }
+        </ul>
     }
 </div>
 
@@ -26,10 +42,15 @@
 
     public StandardNonogram Nonogram { get; set; }
 
+    public bool BadRequest { get; set; } = false;
+
     protected override async Task OnInitializedAsync()
     {
         Nonogram = await client.GetFromJsonAsync<StandardNonogram>($"api/StandardNonogram/{Id}");
+
+        if(Nonogram == null)
+        {
+            BadRequest = true;
+        }
     }
-
-
 }

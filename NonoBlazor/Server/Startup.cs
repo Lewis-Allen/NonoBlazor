@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using NonoBlazor.Database.Contexts;
+using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace NonoBlazor.Server
 {
@@ -25,7 +26,10 @@ namespace NonoBlazor.Server
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews(opt =>
+            {
+                opt.OutputFormatters.RemoveType<HttpNoContentOutputFormatter>();
+            });
             services.AddRazorPages();
             services.AddDbContext<NonogramContext>();
         }

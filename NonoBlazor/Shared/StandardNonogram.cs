@@ -9,7 +9,7 @@ namespace NonoBlazor.Shared
         public int ID { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }
-        public string RowValues { get; set; }
-        public string ColumnValues { get; set; }
+        public List<List<int>> RowValues { get; set; }
+        public List<List<int>> ColumnValues { get; set; }
     }
 }

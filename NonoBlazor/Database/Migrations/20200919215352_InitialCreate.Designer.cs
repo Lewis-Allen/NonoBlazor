@@ -8,7 +8,7 @@ using NonoBlazor.Database.Contexts;
 namespace NonoBlazor.Database.Migrations
 {
     [DbContext(typeof(NonogramContext))]
-    [Migration("20200919115018_InitialCreate")]
+    [Migration("20200919215352_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
