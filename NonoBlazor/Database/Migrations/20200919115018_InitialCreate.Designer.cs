@@ -8,7 +8,7 @@ using NonoBlazor.Database.Contexts;
 namespace NonoBlazor.Database.Migrations
 {
     [DbContext(typeof(NonogramContext))]
-    [Migration("20200919104142_InitialCreate")]
+    [Migration("20200919115018_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -63,6 +63,22 @@ namespace NonoBlazor.Database.Migrations
                             Height = 10,
                             RowValues = "4,2 2,1 1 1,3 1,2 1,1 2,1 1 1,3 1 2,2 1 3,9",
                             Width = 10
+                        },
+                        new
+                        {
+                            ID = 4,
+                            ColumnValues = "3,1 3,5,3 1,3",
+                            Height = 5,
+                            RowValues = "3,1 3,5,3 1,3",
+                            Width = 5
+                        },
+                        new
+                        {
+                            ID = 5,
+                            ColumnValues = "2,1 1,3 1,4,3",
+                            Height = 5,
+                            RowValues = "3,4,1 3,1 1,2",
+                            Width = 5
                         });
                 });
 #pragma warning restore 612, 618

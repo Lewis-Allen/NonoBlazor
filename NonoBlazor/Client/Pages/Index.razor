@@ -1,28 +1,69 @@
 ﻿@page "/"
+@page "/StandardNonogram"
 @using NonoBlazor.Shared
-@inject HttpClient httpClient; 
+@inject HttpClient httpClient;
 
-<h1>Hello, world!</h1>
+<div id="wrapper">
+    <nav class="nonogram-filter">
+        <h1>Nonograms</h1>
 
-Welcome to your new app.
+        <div class="sort">
 
-@foreach(var nonogram in nonograms)
-{
-<ul>
-    <li>ID: @nonogram.ID</li>
-    <li>Width: @nonogram.Width</li>
-    <li>Height: @nonogram.Height</li>
-    <li>Row Values: @nonogram.RowValues</li>
-    <li>Column Values: @nonogram.ColumnValues</li>
-</ul>
-}
+            <div class="collection-sort">
+                <label>Filter Size:</label>
+                <select @onchange="(e => FilterSize(e.Value.ToString()))">
+                    <option value="0">No Filter</option>
+                    <option value="5x5">5 x 5</option>
+                    <option value="10x10">10 x 10</option>
+                    <option value="20x20">20 x 20</option>
+                </select>
+            </div>
+
+            <div class="collection-sort">
+                <label>Sort by:</label>
+                <select>
+                    <option value="/">Nothing here yet!</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <section class="nonograms">
+
+        @foreach (var nonogram in DisplayedNonograms)
+        {
+            <StandardNonogramCard Nonogram="nonogram"></StandardNonogramCard>
+        }
+
+    </section>
+</div>
 
 @code {
 
-    List<StandardNonogram> nonograms = new List<StandardNonogram>();
+    List<StandardNonogram> FullNonogramList = new List<StandardNonogram>();
+
+    List<StandardNonogram> DisplayedNonograms = new List<StandardNonogram>();
 
     protected override async Task OnInitializedAsync()
     {
-        nonograms = await httpClient.GetFromJsonAsync<List<StandardNonogram>>("api/StandardNonogram");
+        FullNonogramList = await httpClient.GetFromJsonAsync<List<StandardNonogram>>("api/StandardNonogram");
+        DisplayedNonograms = FullNonogramList;
+    }
+
+    protected void FilterSize(string filter)
+    {
+        // No Filter
+        if (filter == "0")
+        {
+            DisplayedNonograms = FullNonogramList;
+        }
+        else
+        {
+            string[] sizes = filter.Split("x");
+
+            (int width, int height) = (int.Parse(sizes[0]), int.Parse(sizes[1]));
+
+            DisplayedNonograms = FullNonogramList.Where(sn => sn.Width == width && sn.Height == height).ToList();
+        }
     }
 }

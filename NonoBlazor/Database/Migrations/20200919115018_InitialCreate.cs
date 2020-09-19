@@ -36,6 +36,16 @@ namespace NonoBlazor.Database.Migrations
                 table: "StandardNonograms",
                 columns: new[] { "ID", "ColumnValues", "Height", "RowValues", "Width" },
                 values: new object[] { 3, "2,1 1 1,1 2 3,1 1 6,1 1 1,1 2,2 1 1,2 1 2,3 3,5", 10, "4,2 2,1 1 1,3 1,2 1,1 2,1 1 1,3 1 2,2 1 3,9", 10 });
+
+            migrationBuilder.InsertData(
+                table: "StandardNonograms",
+                columns: new[] { "ID", "ColumnValues", "Height", "RowValues", "Width" },
+                values: new object[] { 4, "3,1 3,5,3 1,3", 5, "3,1 3,5,3 1,3", 5 });
+
+            migrationBuilder.InsertData(
+                table: "StandardNonograms",
+                columns: new[] { "ID", "ColumnValues", "Height", "RowValues", "Width" },
+                values: new object[] { 5, "2,1 1,3 1,4,3", 5, "3,4,1 3,1 1,2", 5 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

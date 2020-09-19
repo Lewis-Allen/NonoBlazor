@@ -1,0 +1,25 @@
+﻿@using NonoBlazor.Shared 
+
+
+<div class="nonogram-card">
+    @if (Nonogram != null)
+    {
+        var nonogramLink = $"/StandardNonogram/{Nonogram.ID}";
+        <NavLink class="nav-link" href=@nonogramLink Match="NavLinkMatch.All" >
+
+            <div class="nonogram-image">
+                <img src="https://via.placeholder.com/1000x1000">
+            </div>
+            <div class="nonogram-info">
+                <h5>Puzzle #@Nonogram.ID</h5>
+                <h6>@Nonogram.Width x @Nonogram.Height</h6>
+            </div>
+        </NavLink>
+    }
+</div>
+@code {
+    [Parameter]
+    public StandardNonogram Nonogram { get; set; }
+
+
+}

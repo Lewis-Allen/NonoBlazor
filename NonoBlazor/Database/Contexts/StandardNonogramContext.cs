@@ -49,6 +49,22 @@ namespace NonoBlazor.Database.Contexts
                         Height = 10,
                         ColumnValues = "2,1 1 1,1 2 3,1 1 6,1 1 1,1 2,2 1 1,2 1 2,3 3,5",
                         RowValues = "4,2 2,1 1 1,3 1,2 1,1 2,1 1 1,3 1 2,2 1 3,9"
+                    },
+                    new StandardNonogram
+                    {
+                        ID = 4,
+                        Width = 5,
+                        Height = 5,
+                        ColumnValues = "3,1 3,5,3 1,3",
+                        RowValues = "3,1 3,5,3 1,3"
+                    },
+                    new StandardNonogram
+                    {
+                        ID = 5,
+                        Width = 5,
+                        Height = 5,
+                        ColumnValues = "2,1 1,3 1,4,3",
+                        RowValues = "3,4,1 3,1 1,2"
                     }
                 );
         }

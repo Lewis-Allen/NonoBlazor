@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NonoBlazor.Client", "NonoBl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NonoBlazor.Shared", "NonoBlazor\Shared\NonoBlazor.Shared.csproj", "{0FAB3598-61D7-44B7-BA46-734D0E860FF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NonoBlazor.Database", "NonoBlazor\Database\NonoBlazor.Database.csproj", "{7F185FA0-D87A-4064-A124-6EFA558E7443}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NonoBlazor.Database", "NonoBlazor\Database\NonoBlazor.Database.csproj", "{7F185FA0-D87A-4064-A124-6EFA558E7443}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
