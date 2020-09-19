@@ -1,9 +1,8 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NonoBlazor.Database.Migrations
 {
-    public partial class InitialDatabase : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +12,6 @@ namespace NonoBlazor.Database.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    PublicID = table.Column<Guid>(nullable: false),
                     Width = table.Column<int>(nullable: false),
                     Height = table.Column<int>(nullable: false),
                     RowValues = table.Column<string>(nullable: true),
@@ -26,18 +24,18 @@ namespace NonoBlazor.Database.Migrations
 
             migrationBuilder.InsertData(
                 table: "StandardNonograms",
-                columns: new[] { "ID", "ColumnValues", "Height", "PublicID", "RowValues", "Width" },
-                values: new object[] { 1, "3,3,3,3,3,3,3,3,3,3", 10, new Guid("cc5f50ad-3c3c-452c-8d9f-43396b46664b"), "3,3,3,3,3,3,3,3,3,3", 10 });
+                columns: new[] { "ID", "ColumnValues", "Height", "RowValues", "Width" },
+                values: new object[] { 1, "7 1,7 2,6,5 1,4 1 2,1 1 3,4,1 5,3 5,3 6", 10, "6 1,5 2,5 3,5 1,4 1 1,3 1 3,2 1 4,5,1 6,2 6", 10 });
 
             migrationBuilder.InsertData(
                 table: "StandardNonograms",
-                columns: new[] { "ID", "ColumnValues", "Height", "PublicID", "RowValues", "Width" },
-                values: new object[] { 2, "3,3,3,3,3,3,3,3,3,3", 10, new Guid("ea6ef215-d7e1-4f82-8cd4-b83e56e8c40d"), "3,3,3,3,3,3,3,3,3,3", 10 });
+                columns: new[] { "ID", "ColumnValues", "Height", "RowValues", "Width" },
+                values: new object[] { 2, "4,2 1,3 1,1 4 2,1 2 1,2 1 1,2 2,2,2,1", 10, "4,2 2,2 1,1 1,1 1,1 1,1 2,1 2 2,2 3,5", 10 });
 
             migrationBuilder.InsertData(
                 table: "StandardNonograms",
-                columns: new[] { "ID", "ColumnValues", "Height", "PublicID", "RowValues", "Width" },
-                values: new object[] { 3, "3,3,3,3,3,3,3,3,3,3", 10, new Guid("8d1388be-25d0-40b5-b7aa-8c204dea4247"), "3,3,3,3,3,3,3,3,3,3", 10 });
+                columns: new[] { "ID", "ColumnValues", "Height", "RowValues", "Width" },
+                values: new object[] { 3, "2,1 1 1,1 2 3,1 1 6,1 1 1,1 2,2 1 1,2 1 2,3 3,5", 10, "4,2 2,1 1 1,3 1,2 1,1 2,1 1 1,3 1 2,2 1 3,9", 10 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -29,29 +29,26 @@ namespace NonoBlazor.Database.Contexts
                     new StandardNonogram
                     {
                         ID = 1,
-                        PublicID = Guid.NewGuid(),
                         Width = 10,
                         Height = 10,
-                        ColumnValues = "3,3,3,3,3,3,3,3,3,3",
-                        RowValues = "3,3,3,3,3,3,3,3,3,3"
+                        ColumnValues = "7 1,7 2,6,5 1,4 1 2,1 1 3,4,1 5,3 5,3 6",
+                        RowValues = "6 1,5 2,5 3,5 1,4 1 1,3 1 3,2 1 4,5,1 6,2 6"
                     },
                     new StandardNonogram
                     {
                         ID = 2,
-                        PublicID = Guid.NewGuid(),
                         Width = 10,
                         Height = 10,
-                        ColumnValues = "3,3,3,3,3,3,3,3,3,3",
-                        RowValues = "3,3,3,3,3,3,3,3,3,3"
+                        ColumnValues = "4,2 1,3 1,1 4 2,1 2 1,2 1 1,2 2,2,2,1",
+                        RowValues = "4,2 2,2 1,1 1,1 1,1 1,1 2,1 2 2,2 3,5"
                     },
                     new StandardNonogram
                     {
                         ID = 3,
-                        PublicID = Guid.NewGuid(),
                         Width = 10,
                         Height = 10,
-                        ColumnValues = "3,3,3,3,3,3,3,3,3,3",
-                        RowValues = "3,3,3,3,3,3,3,3,3,3"
+                        ColumnValues = "2,1 1 1,1 2 3,1 1 6,1 1 1,1 2,2 1 1,2 1 2,3 3,5",
+                        RowValues = "4,2 2,1 1 1,3 1,2 1,1 2,1 1 1,3 1 2,2 1 3,9"
                     }
                 );
         }
