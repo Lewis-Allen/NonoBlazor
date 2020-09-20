@@ -1,4 +1,8 @@
-# NonoBlazor
+# NonoBlazor (WIP)
+
+Fun with Nonograms.
+
+![NonoBlazor](NonoBlazor.png)
 
 To Do:
 - Support Dragging
