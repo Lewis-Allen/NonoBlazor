@@ -1,0 +1,26 @@
+﻿@using NonoBlazor.Shared 
+
+@if (Cell != null)
+{
+<div class="nonogram-cell @(Cell.MarkedFilled ? "bg-dark" : "bg-white")" 
+     @onclick="(e => { Cell.FlipMarkedFilled(); CheckForWin.InvokeAsync(null); })"
+     @oncontextmenu="(e => Cell.FlipMarkedEmpty())" @oncontextmenu:preventDefault="true">
+    
+    @if(Cell.MarkedEmpty)
+    {
+        <div class="nonogram-cell-x">
+            <div>X</div>
+        </div>
+    }
+</div>
+}
+
+@code {
+    [Parameter]
+    public StandardNonogramCell Cell { get; set; }
+
+    [Parameter]
+    public EventCallback CheckForWin { get; set; }
+
+
+}
