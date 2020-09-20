@@ -44,6 +44,50 @@ namespace NonoBlazor.Database.Contexts
                     new StandardNonogram
                     {
                         ID = 1,
+                        Width = 5,
+                        Height = 5,
+                        ColumnValues = new List<List<int>>
+                        {
+                            new List<int> { 3 },
+                            new List<int> { 1, 3 },
+                            new List<int> { 5 },
+                            new List<int> { 3, 1 },
+                            new List<int> { 3 }
+                        },
+                        RowValues = new List<List<int>>
+                        {
+                            new List<int> { 3 },
+                            new List<int> { 1, 3 },
+                            new List<int> { 5 },
+                            new List<int> { 3, 1 },
+                            new List<int> { 3 }
+                        }
+                    },
+                    new StandardNonogram
+                    {
+                        ID = 2,
+                        Width = 5,
+                        Height = 5,
+                        ColumnValues = new List<List<int>>
+                        {
+                            new List<int> { 2 },
+                            new List<int> { 1, 1 },
+                            new List<int> { 3, 1 },
+                            new List<int> { 4 },
+                            new List<int> { 3 }
+                        },
+                        RowValues = new List<List<int>>
+                        {
+                            new List<int> { 3 },
+                            new List<int> { 4 },
+                            new List<int> { 1, 3 },
+                            new List<int> { 1, 1 },
+                            new List<int> { 2 }
+                        }
+                    },
+                    new StandardNonogram
+                    {
+                        ID = 3,
                         Width = 10,
                         Height = 10,
                         ColumnValues = new List<List<int>>
@@ -75,7 +119,7 @@ namespace NonoBlazor.Database.Contexts
                     },
                     new StandardNonogram
                     {
-                        ID = 2,
+                        ID = 4,
                         Width = 10,
                         Height = 10,
                         ColumnValues = new List<List<int>>
@@ -107,7 +151,7 @@ namespace NonoBlazor.Database.Contexts
                     },
                     new StandardNonogram
                     {
-                        ID = 3,
+                        ID = 5,
                         Width = 10,
                         Height = 10,
                         ColumnValues = new List<List<int>>
@@ -135,50 +179,6 @@ namespace NonoBlazor.Database.Contexts
                             new List<int> { 3, 1, 2 },
                             new List<int> { 2, 1, 3 },
                             new List<int> { 9 }
-                        }
-                    },
-                    new StandardNonogram
-                    {
-                        ID = 4,
-                        Width = 5,
-                        Height = 5,
-                        ColumnValues = new List<List<int>>
-                        {
-                            new List<int> { 3 },
-                            new List<int> { 1, 3 },
-                            new List<int> { 5 },
-                            new List<int> { 3, 1 },
-                            new List<int> { 3 }
-                        },
-                        RowValues = new List<List<int>>
-                        {
-                            new List<int> { 3 },
-                            new List<int> { 1, 3 },
-                            new List<int> { 5 },
-                            new List<int> { 3, 1 },
-                            new List<int> { 3 }
-                        }
-                    },
-                    new StandardNonogram
-                    {
-                        ID = 5,
-                        Width = 5,
-                        Height = 5,
-                        ColumnValues = new List<List<int>>
-                        {
-                            new List<int> { 2 },
-                            new List<int> { 1, 1 },
-                            new List<int> { 3, 1 },
-                            new List<int> { 4 },
-                            new List<int> { 3 }
-                        },
-                        RowValues = new List<List<int>>
-                        {
-                            new List<int> { 3 },
-                            new List<int> { 4 },
-                            new List<int> { 1, 3 },
-                            new List<int> { 1, 1 },
-                            new List<int> { 2 }
                         }
                     }
                 );

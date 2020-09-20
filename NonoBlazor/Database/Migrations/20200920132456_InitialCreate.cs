@@ -25,27 +25,27 @@ namespace NonoBlazor.Database.Migrations
             migrationBuilder.InsertData(
                 table: "StandardNonograms",
                 columns: new[] { "ID", "ColumnValues", "Height", "RowValues", "Width" },
-                values: new object[] { 1, "7 1,7 2,6,5 1,4 1 2,1 1 3,4,1 5,3 5,3 6", 10, "6 1,5 2,5 3,5 1,4 1 1,3 1 3,2 1 4,5,1 6,2 6", 10 });
+                values: new object[] { 1, "3,1 3,5,3 1,3", 5, "3,1 3,5,3 1,3", 5 });
 
             migrationBuilder.InsertData(
                 table: "StandardNonograms",
                 columns: new[] { "ID", "ColumnValues", "Height", "RowValues", "Width" },
-                values: new object[] { 2, "4,2 1,3 1,1 4 2,1 2 1,2 1 1,2 2,2,2,1", 10, "4,2 2,2 1,1 1,1 1,1 1,1 2,1 2 2,2 3,5", 10 });
+                values: new object[] { 2, "2,1 1,3 1,4,3", 5, "3,4,1 3,1 1,2", 5 });
 
             migrationBuilder.InsertData(
                 table: "StandardNonograms",
                 columns: new[] { "ID", "ColumnValues", "Height", "RowValues", "Width" },
-                values: new object[] { 3, "2,1 1 1,1 2 3,1 1 6,1 1 1,1 2,2 1 1,2 1 2,3 3,5", 10, "4,2 2,1 1 1,3 1,2 1,1 2,1 1 1,3 1 2,2 1 3,9", 10 });
+                values: new object[] { 3, "7 1,7 2,6,5 1,4 1 2,1 1 3,4,1 5,3 5,3 6", 10, "6 1,5 2,5 3,5 1,4 1 1,3 1 3,2 1 4,5,1 6,2 6", 10 });
 
             migrationBuilder.InsertData(
                 table: "StandardNonograms",
                 columns: new[] { "ID", "ColumnValues", "Height", "RowValues", "Width" },
-                values: new object[] { 4, "3,1 3,5,3 1,3", 5, "3,1 3,5,3 1,3", 5 });
+                values: new object[] { 4, "4,2 1,3 1,1 4 2,1 2 1,2 1 1,2 2,2,2,1", 10, "4,2 2,2 1,1 1,1 1,1 1,1 2,1 2 2,2 3,5", 10 });
 
             migrationBuilder.InsertData(
                 table: "StandardNonograms",
                 columns: new[] { "ID", "ColumnValues", "Height", "RowValues", "Width" },
-                values: new object[] { 5, "2,1 1,3 1,4,3", 5, "3,4,1 3,1 1,2", 5 });
+                values: new object[] { 5, "2,1 1 1,1 2 3,1 1 6,1 1 1,1 2,2 1 1,2 1 2,3 3,5", 10, "4,2 2,1 1 1,3 1,2 1,1 2,1 1 1,3 1 2,2 1 3,9", 10 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

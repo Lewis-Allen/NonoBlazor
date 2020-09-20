@@ -30,9 +30,13 @@
 
     <section class="nonograms">
 
-        @if (DisplayedNonograms.Count == 0)
+        @if (DisplayedNonograms == null)
         {
             <p>Loading...</p>
+        }
+        else if (DisplayedNonograms.Count == 0)
+        {
+            <p>The are no puzzles with the selected filters.</p>
         }
         else
         {

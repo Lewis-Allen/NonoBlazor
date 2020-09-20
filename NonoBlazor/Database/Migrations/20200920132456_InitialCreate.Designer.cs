@@ -8,7 +8,7 @@ using NonoBlazor.Database.Contexts;
 namespace NonoBlazor.Database.Migrations
 {
     [DbContext(typeof(NonogramContext))]
-    [Migration("20200919215352_InitialCreate")]
+    [Migration("20200920132456_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,30 +43,6 @@ namespace NonoBlazor.Database.Migrations
                         new
                         {
                             ID = 1,
-                            ColumnValues = "7 1,7 2,6,5 1,4 1 2,1 1 3,4,1 5,3 5,3 6",
-                            Height = 10,
-                            RowValues = "6 1,5 2,5 3,5 1,4 1 1,3 1 3,2 1 4,5,1 6,2 6",
-                            Width = 10
-                        },
-                        new
-                        {
-                            ID = 2,
-                            ColumnValues = "4,2 1,3 1,1 4 2,1 2 1,2 1 1,2 2,2,2,1",
-                            Height = 10,
-                            RowValues = "4,2 2,2 1,1 1,1 1,1 1,1 2,1 2 2,2 3,5",
-                            Width = 10
-                        },
-                        new
-                        {
-                            ID = 3,
-                            ColumnValues = "2,1 1 1,1 2 3,1 1 6,1 1 1,1 2,2 1 1,2 1 2,3 3,5",
-                            Height = 10,
-                            RowValues = "4,2 2,1 1 1,3 1,2 1,1 2,1 1 1,3 1 2,2 1 3,9",
-                            Width = 10
-                        },
-                        new
-                        {
-                            ID = 4,
                             ColumnValues = "3,1 3,5,3 1,3",
                             Height = 5,
                             RowValues = "3,1 3,5,3 1,3",
@@ -74,11 +50,35 @@ namespace NonoBlazor.Database.Migrations
                         },
                         new
                         {
-                            ID = 5,
+                            ID = 2,
                             ColumnValues = "2,1 1,3 1,4,3",
                             Height = 5,
                             RowValues = "3,4,1 3,1 1,2",
                             Width = 5
+                        },
+                        new
+                        {
+                            ID = 3,
+                            ColumnValues = "7 1,7 2,6,5 1,4 1 2,1 1 3,4,1 5,3 5,3 6",
+                            Height = 10,
+                            RowValues = "6 1,5 2,5 3,5 1,4 1 1,3 1 3,2 1 4,5,1 6,2 6",
+                            Width = 10
+                        },
+                        new
+                        {
+                            ID = 4,
+                            ColumnValues = "4,2 1,3 1,1 4 2,1 2 1,2 1 1,2 2,2,2,1",
+                            Height = 10,
+                            RowValues = "4,2 2,2 1,1 1,1 1,1 1,1 2,1 2 2,2 3,5",
+                            Width = 10
+                        },
+                        new
+                        {
+                            ID = 5,
+                            ColumnValues = "2,1 1 1,1 2 3,1 1 6,1 1 1,1 2,2 1 1,2 1 2,3 3,5",
+                            Height = 10,
+                            RowValues = "4,2 2,1 1 1,3 1,2 1,1 2,1 1 1,3 1 2,2 1 3,9",
+                            Width = 10
                         });
                 });
 #pragma warning restore 612, 618

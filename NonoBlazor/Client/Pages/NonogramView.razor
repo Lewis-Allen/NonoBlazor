@@ -3,7 +3,7 @@
 @inject HttpClient client
 
 <div id="wrapper">
-    @if ((Nonogram == null || CellRows == null) && BadRequest == false)
+    @if ((Nonogram == null || Nonogram.CellRows == null) && BadRequest == false)
     {
         <p>Loading...</p>
     }
@@ -13,7 +13,7 @@
     }
     else
     {
-        <h1>Puzzle #@Nonogram.ID @(HasWon ? "- You Win!" : "")</h1>
+        <h1>Puzzle #@Nonogram.ID @(Nonogram.HasWon ? "- You Win!" : "")</h1>
 
         <div class="nonogram-container">
             <div class="nonogram-table">
@@ -30,7 +30,7 @@
                     }
                 </div>
 
-                @for(var rowNum = 0; rowNum < Nonogram.RowValues.Count; rowNum++) // List<int> rowValues in Nonogram.RowValues)
+                @for(var rowNum = 0; rowNum < Nonogram.RowValues.Count; rowNum++)
                 {
                     <div class="nonogram-row d-flex">
                         <div class="nonogram-cell nonogram-rowvalue-container d-flex justify-content-end">
@@ -45,7 +45,7 @@
                             var rowNumCopy = rowNum;
                             var colNumCopy = colNum;
 
-                            <StandardNonogramCellView Cell="CellRows[rowNumCopy][colNumCopy]" CheckForWin="CheckForWin"></StandardNonogramCellView>
+                            <StandardNonogramCellView Cell="Nonogram.CellRows[rowNumCopy][colNumCopy]" CheckForWin="Nonogram.CheckForWin"></StandardNonogramCellView>
                         }
                     </div>
                 }
@@ -62,91 +62,16 @@
 
     public StandardNonogram Nonogram { get; set; }
 
-    public StandardNonogramCell[][] CellRows { get; set; }
-
-    public StandardNonogramCell[][] CellColumns { get; set; }
-
     public bool BadRequest { get; set; } = false;
-
-    public bool HasWon { get; set; } = false;
 
     protected override async Task OnInitializedAsync()
     {
         Nonogram = await client.GetFromJsonAsync<StandardNonogram>($"api/StandardNonogram/{Id}");
+        Nonogram.Initialize();
 
         if (Nonogram == null)
         {
             BadRequest = true;
         }
-        else
-        {
-            CellRows = new StandardNonogramCell[Nonogram.Height][];
-            CellColumns = new StandardNonogramCell[Nonogram.Width][];
-
-            @for (var i = 0; i < CellRows.Length; i++)
-            {
-                CellRows[i] = new StandardNonogramCell[Nonogram.Width];
-            }
-
-            @for (var i = 0; i < CellColumns.Length; i++)
-            {
-                CellColumns[i] = new StandardNonogramCell[Nonogram.Height];
-            }
-
-            @for(var x = 0; x < CellRows.Length; x++)
-            {
-                @for(var y = 0; y < CellRows[x].Length; y++)
-                {
-                    var cell = new StandardNonogramCell();
-                    CellRows[y][x] = cell;
-                    CellColumns[x][y] = cell;
-                }
-            }
-        }
-    }
-
-    public void CheckForWin()
-    {
-        for(int i = 0; i < CellRows.Length; i++)
-        {
-            if (!ValidateLine(Nonogram.RowValues[i], CellRows[i]))
-            {
-                HasWon = false;
-                return;
-            }
-        }
-
-        for (int i = 0; i < CellColumns.Length; i++)
-        {
-            if (!ValidateLine(Nonogram.ColumnValues[i], CellColumns[i]))
-            {
-                HasWon = false;
-                return;
-            }
-        }
-
-        HasWon = true;
-    }
-
-    private bool ValidateLine(List<int> headerValues, StandardNonogramCell[] cells)
-    {
-        string cellstring = string.Join("", cells.Select(c => c.MarkedFilled ? "1" : "0").ToList());
-
-        string[] blocks = cellstring.Split("0", StringSplitOptions.RemoveEmptyEntries);
-
-        if(blocks.Length != headerValues.Count)
-        {
-            return false;
-        }
-
-        for(int i = 0; i < headerValues.Count; i++)
-        {
-            int blockCount = headerValues[i];
-
-            if (blocks[i].Length != blockCount)
-                return false;
-        }
-
-        return true;
     }
 }
