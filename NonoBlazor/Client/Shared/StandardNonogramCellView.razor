@@ -3,7 +3,7 @@
 @if (Cell != null)
 {
 <div class="nonogram-cell @(Cell.MarkedFilled ? "bg-dark" : "bg-white")" 
-     @onclick="(e => { Cell.FlipMarkedFilled(); CheckForWin.InvokeAsync(null); })"
+     @onmousedown="(e => { Cell.FlipMarkedFilled(); CheckForWin.InvokeAsync(null); })"
      @oncontextmenu="(e => Cell.FlipMarkedEmpty())" @oncontextmenu:preventDefault="true">
     
     @if(Cell.MarkedEmpty)

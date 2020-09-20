@@ -208,6 +208,11 @@ app {
     align-items: center;
 }
 
+::selection {
+    color: none;
+    background: none;
+}
+
 .nonogram-rowvalue-container {
     min-width: 100px;
 }
